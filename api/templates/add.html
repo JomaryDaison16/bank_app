@@ -1,0 +1,47 @@
+<!-- {% block body%}
+ -->
+<p>
+  <label for="fname">First name:</label><br>
+  	<input type="text" id="fname" name="fname" value="John"><br>
+  <label for="mname">Middle name:</label><br>
+  	<input type="text" id="mname" name="mname" value="Johny"><br><br>
+  <label for="lname">Last name:</label><br>
+  	<input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <label for="balance">Balance:</label><br>
+  	<input type="text" id="balance" name="balance" value="5000"><br><br>
+  </p> 
+  <button type="submit" onclick="submit()">Submit</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+
+<script>
+	function submit(){
+			console.log("hallo11")
+
+		$.ajax({
+    		
+    		url: "http://127.0.0.1:5000/Create-Account",
+    		contentType: 'application/json; charset=utf-8',
+    		 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+   			method:  'POST',
+    		dataType: 'json',
+    		// crossDomain: true,
+    		data: JSON.stringify({
+      			'fname':$('#fname').val(),
+      			'mname':$('#mname').val(),
+      			'lname':$('#lname').val(), 
+      			'balance':$('#balance').val(),
+    		}),
+    success: function(data){
+      alert(data.message)
+      // window.open('employees.html','_self');
+    	},   
+    error: function () {
+      alert("Failed to Add!")
+    	}
+  		});
+	}
+</script>
+<!-- {% endblock %} -->

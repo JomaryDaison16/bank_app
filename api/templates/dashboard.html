@@ -1,0 +1,23 @@
+  <table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in entries %}
+    <tr>
+      <td>{{ entry.cust_fname }}</td>
+      <td>{{ entry.cust_balance }}</td>
+    </tr>
+    {% else %}
+    <li><em>No entries yet. Add some!</em></li>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<!-- <button type="button" onclick="location.href=../add">New costumer</button> -->
+
+<a href="add.html">add</a>
